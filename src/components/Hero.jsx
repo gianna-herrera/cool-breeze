@@ -91,7 +91,7 @@ const Hero = () => {
 		 
 		 <div className="content">
 			<div className="space-y-5 hidden md:block">
-			 <p>Cool. Crisp. Classic.</p>
+			 <p>Fresh. Fizzy. Natural.</p>
 			 <p className="subtitle">
 				Sip the Spirit <br /> of Summer
 			 </p>
@@ -99,11 +99,11 @@ const Hero = () => {
 			
 			<div className="view-cocktails">
 			 <p className="subtitle">
-				Every cocktail on our menu is a blend of premium ingredients,
-				creative flair, and timeless recipes — designed to delight your
-				senses.
+				Every Cool Breeze flavor is a blend of real fruit, natural
+				ingredients, and refreshing fizz — crafted to delight your
+				senses, guilt-free.
 			 </p>
-			 <a href="#cocktails">View cocktails</a>
+			 <a href="#cocktails">View flavors</a>
 			</div>
 		 </div>
 		</div>
