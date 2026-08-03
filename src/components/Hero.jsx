@@ -145,7 +145,7 @@ const Hero = () => {
 		 muted
 		 playsInline
 		 preload="auto"
-		 src="/videos/canva-video-scrub.mp4"
+		 src="https://res.cloudinary.com/h5rywbkv/video/upload/v1785791157/canva-video-scrub_kwpxmm.mp4"
 		/>
 	 </div>
 	</>
