@@ -28,7 +28,7 @@ const Contact = () => {
 			.from(titleSplit.words, {
 				opacity: 0, yPercent: 100, stagger: 0.02
 			})
-			.from('.contact-header p, .info-card, .contact-form-wrapper form', {
+			.from('.contact-header p, .contact-info, .contact-form-wrapper form', {
 				opacity: 0, y: 30, stagger: 0.08
 			}, '-=0.3')
 			.to('#f-right-leaf', {
@@ -88,18 +88,18 @@ const Contact = () => {
 
 				<div className="contact-grid">
 					<div className="contact-info">
-						<div className="info-card">
+						<div className="info-section">
 							<h3>Visit Our Bar</h3>
 							<p>456, Raq Blvd. #404, Los Angeles, CA 90210</p>
 						</div>
 
-						<div className="info-card">
+						<div className="info-section">
 							<h3>Contact Us</h3>
 							<p>(555) 987-6543</p>
 							<p>hello@jsmcocktail.com</p>
 						</div>
 
-						<div className="info-card">
+						<div className="info-section">
 							<h3>Open Every Day</h3>
 							{openingHours.map((time) => (
 								<p key={time.day}>
@@ -108,7 +108,7 @@ const Contact = () => {
 							))}
 						</div>
 
-						<div className="info-card">
+						<div className="info-section">
 							<h3>Socials</h3>
 							<div className="socials">
 								{socials.map((social) => (

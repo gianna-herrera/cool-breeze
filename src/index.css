@@ -386,29 +386,35 @@ body {
         }
 
         .contact-grid {
-            @apply grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start;
+            @apply grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-stretch;
+        }
+
+        /* Shared glass-panel look for both columns so they read as one symmetric pair */
+        .contact-info,
+        .contact-form-wrapper form {
+            @apply h-full rounded-2xl sm:rounded-3xl border border-white/15 bg-white/10 backdrop-blur-md shadow-[0_8px_40px_rgba(0,0,0,0.35)] p-5 sm:p-8 lg:p-10;
         }
 
         .contact-info {
-            @apply lg:col-span-4 flex flex-col gap-6 sm:gap-8 text-left;
+            @apply flex flex-col divide-y divide-white/10 text-left;
 
-            .info-card {
-                @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 sm:p-6;
+            .info-section {
+                @apply pt-5 sm:pt-6 first:pt-0;
 
                 h3 {
-                    @apply uppercase text-xs sm:text-sm tracking-wide text-yellow mb-2;
+                    @apply uppercase text-xs sm:text-sm tracking-wide text-yellow font-semibold mb-2;
                 }
 
                 p {
-                    @apply text-sm sm:text-base text-white/80 leading-relaxed;
+                    @apply text-sm sm:text-base text-white leading-relaxed;
                 }
             }
 
             .socials {
-                @apply flex items-center gap-4 pt-1;
+                @apply flex items-center gap-3 sm:gap-4 pt-1;
 
                 a {
-                    @apply flex-center size-10 sm:size-11 rounded-full border border-white/15 hover:border-yellow hover:bg-yellow/10 transition-colors;
+                    @apply flex-center size-10 sm:size-11 rounded-full border border-white/25 bg-white/5 hover:border-yellow hover:bg-yellow/15 transition-colors;
 
                     img {
                         @apply size-4 sm:size-5;
@@ -418,10 +424,8 @@ body {
         }
 
         .contact-form-wrapper {
-            @apply lg:col-span-8;
-
             form {
-                @apply rounded-2xl sm:rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-5 sm:p-8 lg:p-10 flex flex-col gap-5 sm:gap-6;
+                @apply flex flex-col gap-5 sm:gap-6;
             }
 
             .form-row {
@@ -432,12 +436,12 @@ body {
                 @apply flex flex-col gap-2 text-left;
 
                 label {
-                    @apply text-xs sm:text-sm uppercase tracking-wide text-white/60;
+                    @apply text-xs sm:text-sm uppercase tracking-wide text-white/80 font-medium;
                 }
 
                 input,
                 textarea {
-                    @apply w-full bg-transparent border-b border-white/25 focus:border-yellow outline-none py-2 sm:py-3 text-sm sm:text-base placeholder:text-white/30 transition-colors;
+                    @apply w-full bg-white/5 rounded-lg border border-white/25 focus:border-yellow focus:bg-white/10 outline-none px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder:text-white/45 transition-colors;
                 }
 
                 textarea {
@@ -451,7 +455,7 @@ body {
             }
 
             .error-text {
-                @apply text-xs text-red-400;
+                @apply text-xs text-red-300;
             }
 
             button[type="submit"] {
