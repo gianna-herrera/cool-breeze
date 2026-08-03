@@ -115,7 +115,7 @@ const Hero = () => {
 		 muted
 		 playsInline
 		 preload="auto"
-		 src="/videos/heroo.mp4"
+		 src="/videos/canva-video.mp4"
 		/>
 	 </div>
 	</>

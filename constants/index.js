@@ -1,3 +1,4 @@
+//informacion index.js
 const navLinks = [
  {
 	id: "cocktails",
