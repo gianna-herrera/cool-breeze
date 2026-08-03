@@ -40,23 +40,26 @@ const Menu = () => {
  
  return (
 	<section id="menu" aria-labelledby="menu-heading">
-	 <img src="/images/slider-left-leaf.png" alt="left-leaf" id="m-left-leaf" />
-	 <img src="/images/slider-right-leaf.png" alt="right-leaf" id="m-right-leaf" />
+	 <img src="https://res.cloudinary.com/h5rywbkv/image/upload/v1785789306/slider-left-leaf1_h1avb3.png" alt="left-leaf" id="m-left-leaf" />
+	 <img src="https://res.cloudinary.com/h5rywbkv/image/upload/v1785789306/slider-right-leaf_tjbaao.png" alt="right-leaf" id="m-right-leaf" />
 	 
 	 <h2 id="menu-heading" className="sr-only">
-		Cocktail Menu
+		Flavor Menu
 	 </h2>
 	 
-	 <nav className="cocktail-tabs" aria-label="Cocktail Navigation">
+	 <nav className="cocktail-tabs" aria-label="Flavor Navigation">
 		{allCocktails.map((cocktail, index) => {
 		 const isActive = index === currentIndex;
 		 
 		 return (
-			<button key={cocktail.id} className={`
-				${isActive
-				 ? 'text-white border-white'
-				 : 'text-white/50 border-white/50'}
-			 `}	onClick={() => goToSlide(index)}
+			<button
+			 key={cocktail.id}
+			 className={
+				isActive
+				 ? 'bg-yellow text-black shadow-sm'
+				 : 'text-white/60 hover:text-white hover:bg-white/10'
+			 }
+			 onClick={() => goToSlide(index)}
 			>
 			 {cocktail.name}
 			</button>
@@ -68,12 +71,12 @@ const Menu = () => {
 		<div className="arrows">
 		 <button className="text-left" onClick={() => goToSlide(currentIndex - 1)}>
 			<span>{prevCocktail.name}</span>
-			<img src="/images/right-arrow.png" alt="right-arrow" aria-hidden="true" />
+			<img src="https://res.cloudinary.com/h5rywbkv/image/upload/v1785789305/right-arrow_tjrxeg.png" alt="right-arrow" aria-hidden="true" />
 		 </button>
 		 
 		 <button className="text-left" onClick={() => goToSlide(currentIndex + 1)}>
 			<span>{nextCocktail.name}</span>
-			<img src="/images/left-arrow.png" alt="left-arrow" aria-hidden="true" />
+			<img src="https://res.cloudinary.com/h5rywbkv/image/upload/v1785789301/left-arrow_slvb05.png" alt="left-arrow" aria-hidden="true" />
 		 </button>
 		</div>
 		
@@ -83,7 +86,7 @@ const Menu = () => {
 		
 		<div className="recipe">
 		 <div ref={contentRef} className="info">
-			<p>Recipe for:</p>
+			<p>Featured flavor:</p>
 			<p id="title">{currentCocktail.name}</p>
 		 </div>
 		 

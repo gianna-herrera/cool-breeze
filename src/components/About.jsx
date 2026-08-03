@@ -29,16 +29,16 @@ const About = () => {
 	 <div className="mb-16 md:px-0 px-5">
 		<div className="content">
 		 <div className="md:col-span-8">
-			<p className="badge">Best Cocktails</p>
+			<p className="badge">100% Natural</p>
 			<h2>
 			 Where every detail matters <span className="text-white">-</span>
-				from muddle to garnish
+				from real fruit to fizz
 			</h2>
 		 </div>
 		 
 		 <div className="sub-content">
 			<p>
-			 Every cocktail we serve is a reflection of our obsession with detail — from the first muddle to the final garnish. That care is what turns a simple drink into something truly memorable.
+			 Every bottle of Cool Breeze is a reflection of our obsession with quality — from sourcing real fruit to the final bubble. That care is what turns a simple drink into something truly refreshing.
 			</p>
 			
 			<div>
@@ -56,29 +56,29 @@ const About = () => {
 	 <div className="top-grid">
 		<div className="md:col-span-3">
 		 <div  className="noisy" />
-		 <img src="/images/abt1.png" alt="grid-img-1" />
+		 <img src="https://res.cloudinary.com/h5rywbkv/image/upload/v1785789318/abt1_iywjgb.jpg" alt="grid-img-1" />
 		</div>
 		
 		<div className="md:col-span-6">
 		 <div  className="noisy" />
-		 <img src="/images/abt2.png" alt="grid-img-2" />
+		 <img src="https://res.cloudinary.com/h5rywbkv/image/upload/v1785789326/abt2_lsnkmo.jpg" alt="grid-img-2" />
 		</div>
 		
 		<div className="md:col-span-3">
 		 <div  className="noisy" />
-		 <img src="/images/abt5.png" alt="grid-img-5" />
+		 <img src="https://res.cloudinary.com/h5rywbkv/image/upload/v1785789334/abt5_sf4brv.jpg" alt="grid-img-5" />
 		</div>
 	 </div>
 	 
 	 <div className="bottom-grid">
 		<div className="md:col-span-8">
 		 <div  className="noisy" />
-		 <img src="/images/abt3.png" alt="grid-img-3" />
+		 <img src="https://res.cloudinary.com/h5rywbkv/image/upload/v1785789329/abt3_o3frzy.jpg" alt="grid-img-3" />
 		</div>
 		
 		<div className="md:col-span-4">
 		 <div  className="noisy" />
-		 <img src="/images/abt4.png" alt="grid-img-4" />
+		 <img src="https://res.cloudinary.com/h5rywbkv/image/upload/v1785789331/abt4_c72am5.jpg" alt="grid-img-4" />
 		</div>
 	 </div>
 	 

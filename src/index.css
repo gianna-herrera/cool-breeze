@@ -85,7 +85,7 @@ body {
     }
 
     .noisy {
-        @apply absolute inset-0 size-full bg-[url("/images/noise.png")];
+        @apply absolute inset-0 size-full bg-[url("https://res.cloudinary.com/h5rywbkv/image/upload/v1785789303/noise_rtvv4z.png")];
     }
 
     /* ============ HERO ============ */
@@ -94,7 +94,9 @@ body {
 
         h1 {
             /* clamp keeps the huge display type from overflowing on very small screens */
-            @apply mt-28 sm:mt-36 md:mt-32 text-center font-modern-negra leading-none;
+            /* relative + z-20: guarantees the title always renders above the
+               video layer, regardless of which frame is showing on load */
+            @apply relative z-20 mt-32 sm:mt-40 md:mt-36 text-center font-modern-negra leading-none;
             font-size: clamp(3.5rem, 20vw, 14rem);
         }
 
@@ -135,8 +137,17 @@ body {
         }
     }
 
+    .video-wrap {
+        /* Fixed top offset instead of inset-0: guarantees real clearance
+           below BREEZE regardless of frame/aspect. #hero already has z-10,
+           so its content (the title) always paints above this sibling. */
+        @apply absolute inset-x-0 bottom-0 top-[46%] sm:top-[42%] md:top-[36%] lg:top-[30%];
+    }
+
     video {
-        @apply w-full h-[45%] sm:h-1/2 md:h-[80%] absolute bottom-0 left-0 md:object-contain object-cover object-bottom;
+        /* object-contain in every breakpoint: the source is a vertical 1080x1920
+           clip, so object-cover was cropping the top half on mobile/tablet. */
+        @apply block absolute inset-0 w-full h-full object-contain object-bottom;
     }
 
     /* ============ COCKTAILS ============ */
@@ -152,14 +163,13 @@ body {
         }
 
         .list {
-            @apply container mx-auto relative z-10 flex md:flex-row flex-col justify-between items-start gap-12 md:gap-20 pt-28 sm:pt-32 md:pt-40 2xl:px-0 px-4 sm:px-5;
+            @apply container mx-auto relative z-10 flex md:flex-row flex-col justify-between items-stretch gap-6 md:gap-8 pt-28 sm:pt-32 md:pt-40 pb-16 md:pb-24 2xl:px-0 px-4 sm:px-5;
 
-            .popular {
-                @apply space-y-6 sm:space-y-8 w-full md:w-fit;
-            }
-
+            .popular,
             .loved {
-                @apply space-y-6 sm:space-y-8 w-full md:w-fit pb-16 md:pb-0;
+                /* Glass panel: subtle border + blur instead of a flat black block,
+                   so the radial gradient behind the section still reads through */
+                @apply space-y-6 sm:space-y-8 w-full md:w-[420px] rounded-2xl sm:rounded-3xl border border-white/15 bg-white/[0.06] backdrop-blur-md shadow-[0_8px_40px_rgba(0,0,0,0.35)] p-6 sm:p-8;
             }
 
             h2 {
@@ -170,14 +180,14 @@ body {
                 @apply space-y-6 sm:space-y-8;
 
                 li {
-                    @apply flex justify-between items-start gap-4;
+                    @apply flex justify-between items-start gap-4 pb-6 sm:pb-8 border-b border-white/10 last:pb-0 last:border-none;
 
                     h3 {
                         @apply font-modern-negra text-lg sm:text-xl 2xl:text-3xl text-yellow;
                     }
 
                     p {
-                        @apply text-sm;
+                        @apply text-sm text-white/70;
                     }
 
                     span {
@@ -211,6 +221,18 @@ body {
 
                     span {
                         @apply text-yellow font-bold text-4xl sm:text-5xl;
+                    }
+                }
+
+                .rating-row {
+                    @apply flex items-center gap-4 flex-row;
+                }
+
+                .avatar-group {
+                    @apply flex -space-x-3 shrink-0;
+
+                    img {
+                        @apply size-10 sm:size-11 rounded-full border-2 border-black object-cover;
                     }
                 }
             }
@@ -297,10 +319,12 @@ body {
         }
 
         .cocktail-tabs {
-            @apply grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 md:gap-20 mb-16 sm:mb-32 relative z-10 md:max-w-6xl md:mx-auto;
+            /* Glass pill bar instead of a flat black block, so the radial
+               gradient behind #menu still shows through the edges/gaps */
+            @apply grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 mb-16 sm:mb-24 relative z-10 md:max-w-2xl md:mx-auto rounded-2xl sm:rounded-full border border-white/15 bg-white/10 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.35)] p-2 sm:p-2.5;
 
             button {
-                @apply text-lg sm:text-xl md:text-3xl pb-2 cursor-pointer hover:text-yellow hover:border-yellow border-b-1 transition-colors font-modern-negra;
+                @apply text-sm sm:text-base md:text-lg py-2.5 sm:py-3 rounded-xl sm:rounded-full cursor-pointer transition-all duration-300 font-modern-negra text-center;
             }
         }
 

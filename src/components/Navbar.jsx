@@ -21,7 +21,7 @@ const Navbar = () => {
     <nav>
         <div>
             <a href="#home" className="flex items-center gap-2">
-                <img src="/images/logo.png" alt="logo"/>
+                <img src="https://res.cloudinary.com/h5rywbkv/image/upload/v1785789302/logo_hg9xo8.png" alt="logo"/>
                 <p>Cool Breeze</p>
             </a>
 

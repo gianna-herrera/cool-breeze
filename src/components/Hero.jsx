@@ -58,15 +58,45 @@ const Hero = () => {
 		trigger: "video",
 		start: startValue,
 		end: endValue,
-		scrub: true,
+		// A small numeric scrub adds a touch of lag/interpolation instead of
+		// snapping 1:1 to scroll position. Since the video can only seek to
+		// its nearest keyframe, an instant scrub (scrub: true) makes every
+		// keyframe jump feel like a stutter — the lag smooths that out.
+		scrub: 1,
 		pin: true,
 	 },
 	});
 	
-	videoRef.current.onloadedmetadata = () => {
-	 tl.to(videoRef.current, {
-		currentTime: videoRef.current.duration,
-	 });
+	// Add the scrub tween exactly once. Assigning to `.onloadedmetadata`
+	// directly can end up firing more than once (effect re-runs, cached
+	// video, etc.), which stacks a second currentTime:0→duration tween
+	// right after the first on the same timeline — GSAP then plays the
+	// full rotation twice (or more) across the same scroll range, which
+	// looks like the can spinning several times. addEventListener with
+	// `{ once: true }` guarantees this only ever attaches/fires one time.
+	const addScrubTween = () => {
+		tl.to(videoRef.current, {
+			currentTime: videoRef.current.duration,
+			ease: "none",
+		});
+	};
+
+	if (videoRef.current.readyState >= 1) {
+		// Metadata (and therefore duration) is already available — e.g. the
+		// video was cached — so the "loadedmetadata" event already fired
+		// and would never reach a listener attached now.
+		addScrubTween();
+	} else {
+		videoRef.current.addEventListener("loadedmetadata", addScrubTween, {
+			once: true,
+		});
+	}
+
+	// Cleanup: if the component unmounts before metadata loads (HMR, fast
+	// route changes, etc.), remove the listener so it can't fire later
+	// against a stale/reverted GSAP context.
+	return () => {
+		videoRef.current?.removeEventListener("loadedmetadata", addScrubTween);
 	};
  }, []);
  
@@ -76,12 +106,12 @@ const Hero = () => {
 		<h1 className="title">BREEZE</h1>
 		
 		<img
-		 src="/images/hero-left-leaf.png"
+		 src="https://res.cloudinary.com/h5rywbkv/image/upload/v1785789300/hero-left-leaf_hluwku.png"
 		 alt="left-leaf"
 		 className="left-leaf"
 		/>
 		<img
-		 src="/images/hero-right-leaf.png"
+		 src="https://res.cloudinary.com/h5rywbkv/image/upload/v1785789301/hero-right-leaf_s8vmqz.png"
 		 alt="right-leaf"
 		 className="right-leaf"
 		/>
@@ -109,13 +139,13 @@ const Hero = () => {
 		</div>
 	 </section>
 	 
-	 <div className="video absolute inset-0">
+	 <div className="video-wrap">
 		<video
 		 ref={videoRef}
 		 muted
 		 playsInline
 		 preload="auto"
-		 src="/videos/canva-video.mp4"
+		 src="/videos/canva-video-scrub.mp4"
 		/>
 	 </div>
 	</>

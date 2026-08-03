@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react'
-import { openingHours, socials } from '../../constants/index.js'
+import { openingHours, socials, storeInfo } from '../../constants/index.js'
 import { useGSAP } from '@gsap/react'
 import { SplitText } from 'gsap/all';
 import gsap from 'gsap';
@@ -73,15 +73,15 @@ const Contact = () => {
 
 	return (
 		<footer id="contact">
-			<img src="/images/footer-right-leaf.png" alt="leaf-right" id="f-right-leaf" />
-			<img src="/images/footer-left-leaf.png" alt="leaf-left" id="f-left-leaf" />
+			<img src="https://res.cloudinary.com/h5rywbkv/image/upload/v1785789300/footer-right-leaf_kevdlo.png" alt="leaf-right" id="f-right-leaf" />
+			<img src="https://res.cloudinary.com/h5rywbkv/image/upload/v1785789299/footer-left-leaf_x91dsh.png" alt="leaf-left" id="f-left-leaf" />
 
 			<div className="content">
 				<div className="contact-header">
 					<span className="eyebrow">Get in touch</span>
-					<h2>Where to Find Us</h2>
+					<h2>{storeInfo.heading}</h2>
 					<p>
-						Have a question, an event to plan, or just want to say hi?
+						Have a question about a flavor, a bulk order, or just want to say hi?
 						Send us a message and our team will get back to you shortly.
 					</p>
 				</div>
@@ -89,14 +89,14 @@ const Contact = () => {
 				<div className="contact-grid">
 					<div className="contact-info">
 						<div className="info-section">
-							<h3>Visit Our Bar</h3>
-							<p>456, Raq Blvd. #404, Los Angeles, CA 90210</p>
+							<h3>Visit Us</h3>
+							<p>{storeInfo.address}</p>
 						</div>
 
 						<div className="info-section">
 							<h3>Contact Us</h3>
-							<p>(555) 987-6543</p>
-							<p>hello@jsmcocktail.com</p>
+							<p>{storeInfo.contact.phone}</p>
+							<p>{storeInfo.contact.email}</p>
 						</div>
 
 						<div className="info-section">

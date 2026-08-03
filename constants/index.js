@@ -104,9 +104,9 @@ const goodLists = [
 
 const storeInfo = {
 	heading: "Where to Find Us",
-	address: "88 Sunrise Ave, Suite 200, Los Angeles, CA 90012",
+	address: "Miraflores, Lima, Peru",
 	contact: {
-		phone: "(555) 204-7766",
+		phone: "+51 979197888",
 		email: "hello@coolbreezedrinks.com",
 	},
 };
@@ -121,17 +121,17 @@ const openingHours = [
 const socials = [
 	{
 		name: "Instagram",
-		icon: "/images/insta.png",
+		icon: "https://res.cloudinary.com/h5rywbkv/image/upload/v1785789301/insta_fj6z0x.png",
 		url: "#",
 	},
 	{
 		name: "X (Twitter)",
-		icon: "/images/x.png",
+		icon: "https://res.cloudinary.com/h5rywbkv/image/upload/v1785789307/x_hrjjav.png",
 		url: "#",
 	},
 	{
 		name: "Facebook",
-		icon: "/images/fb.png",
+		icon: "https://res.cloudinary.com/h5rywbkv/image/upload/v1785789299/fb_igdwt2.png",
 		url: "#",
 	},
 ];
@@ -141,7 +141,7 @@ const allCocktails = [
 	{
 		id: 1,
 		name: "Orange Zest",
-		image: "/images/drink1.png",
+		image: "https://res.cloudinary.com/h5rywbkv/image/upload/v1785789298/drink1_gjyfdh.png",
 		title: "Vitamin C Charged Sunshine",
 		description:
 			"Cold-pressed orange juice blended with sparkling spring water and just a touch of natural cane sugar. No artificial flavors, no preservatives — pure citrus energy in every sip.",
@@ -149,7 +149,7 @@ const allCocktails = [
 	{
 		id: 2,
 		name: "Lime Cooler",
-		image: "/images/drink2.png",
+		image: "https://res.cloudinary.com/h5rywbkv/image/upload/v1785789298/drink2_zfkes7.png",
 		title: "Crisp, Clean & Refreshing",
 		description:
 			"Zesty lime juice meets sparkling water for a light, low-calorie refresher. Perfect for hot days when you need something clean and revitalizing.",
@@ -157,7 +157,7 @@ const allCocktails = [
 	{
 		id: 3,
 		name: "Grape Splash",
-		image: "/images/drink3.png",
+		image: "https://res.cloudinary.com/h5rywbkv/image/upload/v1785789298/drink3_v4paap.png",
 		title: "Bold Flavor, Naturally Sweet",
 		description:
 			"Real grape juice, naturally sweetened and lightly carbonated. A rich, fruity favorite packed with antioxidants and zero added sugar.",
@@ -165,7 +165,7 @@ const allCocktails = [
 	{
 		id: 4,
 		name: "Strawberry Fizz",
-		image: "/images/drink4.png",
+		image: "https://res.cloudinary.com/h5rywbkv/image/upload/v1785789298/drink4_kjv4j1.png",
 		title: "Juicy, Sweet & Sparkling",
 		description:
 			"Fresh strawberry puree blended with sparkling water for a naturally sweet, fizzy treat. Made with real fruit and nothing you can't pronounce.",
